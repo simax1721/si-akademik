@@ -70,7 +70,7 @@
                                 <div class="form-group my-3">
                                     <label class="form-label">Jurusan</label>
                                     <select class="js-example-basic-single form-control form-control-lg" name="datajurusans_id">
-                                        <option value="" disabled selected>Jurusans</option>
+                                        <option value="" disabled selected>Jurusan</option>
                                         @foreach ($jurusans as $row)
                                             <option {{  $mhs->datajurusans_id == $row->id ? 'selected' : '' }} value="{{ $row->id }}">{{ $row->name }}</option>
                                         @endforeach

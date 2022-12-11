@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Tambah Data Dosen')
+@section('title', 'Tambah Data Mata Kuliah')
 
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -12,7 +12,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h6>Form Tambah Data Dosen</h6>
+                    <h6>Form Tambah Data Mata Kuliah</h6>
                 </div>
                 <div class="card-body">
                     <form action="{{ url('matkul/store') }}" method="post"> @csrf

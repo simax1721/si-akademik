@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datajurusan;
+use App\Models\Dosen;
 use App\Models\Mahasiswa;
+use App\Models\Matkul;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
+
+    public function dashboard()
+    {
+        $c_mhs = count(Mahasiswa::all());
+        $c_dsn = count(Dosen::all());
+        $c_mk = count(Matkul::all());
+        return view('dashboard', compact('c_mhs', 'c_dsn', 'c_mk'));
+    }
+
     public function index()
     {
         $mahasiswas = Mahasiswa::all();

@@ -3,6 +3,7 @@
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [MahasiswaController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -54,6 +53,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/matkul/{id}/edit', [MatkulController::class, 'edit']);
     Route::put('/matkul/{id}/update', [MatkulController::class, 'update']);
     Route::get('/matkul/{id}/destroy', [MatkulController::class, 'destroy']);
+    
+    // nilai
+    Route::get('/nilai', [NilaiController::class, 'index']);
+    Route::get('/nilai/create', [NilaiController::class, 'create']);
+    Route::post('/nilai/store', [NilaiController::class, 'store']);
+    Route::get('/nilai/{id}/edit', [NilaiController::class, 'edit']);
+    Route::put('/nilai/{id}/update', [NilaiController::class, 'update']);
+    Route::get('/nilai/{id}/destroy', [NilaiController::class, 'destroy']);
 
 });
 
